@@ -1,5 +1,6 @@
 @use "../variables" as v;
 
+/* Component styles for the article layout */
 @layer components {
   .article {
     background-color: v.$color-background-secondary;
