@@ -1,0 +1,252 @@
+@use "../variables" as v;
+
+@layer components {
+  .article {
+    background-color: v.$color-background-secondary;
+    padding: v.$spacing-sm;
+
+    &__content {
+      container: article-content / inline-size;
+      display: flex;
+      flex-direction: column;
+      margin-inline: auto;
+      max-width: v.$breakpoint-max-width;
+      padding: v.$spacing-md v.$spacing-sm;
+
+      p {
+        color: v.$color-text-secondary;
+        font-family: v.$font-family-sans-serif;
+        font-size: v.$font-size-base;
+        line-height: v.$line-height-base;
+        margin-bottom: v.$spacing-sm;
+      }
+    }
+
+    :is(&__title, &__subtitle, &__author) {
+      color: v.$color-text-primary;
+      font-family: v.$font-family-serif;
+      font-weight: v.$font-weight-bold;
+      line-height: v.$line-height-heading;
+      margin: v.$spacing-sm;
+    }
+
+    &__title {
+      font-size: v.$h1-size;
+      margin-bottom: v.$spacing-lg;
+      text-align: center;
+    }
+
+    &__author {
+      font-size: v.$h3-size;
+      font-style: italic;
+      margin-bottom: v.$spacing-md;
+      text-align: center;
+    }
+
+    &__figure {
+      align-self: center;
+      margin: v.$spacing-sm;
+      width: 100%;
+    }
+
+    &__image {
+      border-radius: v.$border-radius-base;
+      box-shadow: v.$box-shadow;
+      width: 100%;
+    }
+
+    &__caption {
+      color: v.$color-text-secondary;
+      font-size: v.$font-size-sm;
+      font-style: italic;
+      margin-top: v.$spacing-sm;
+      text-align: center;
+    }
+
+    &__blockquote {
+      border-left: 4px solid v.$color-primary;
+      margin: v.$spacing-lg;
+      padding-left: v.$spacing-lg;
+
+      p {
+        color: v.$color-text-primary;
+        font-family: v.$font-family-serif;
+        font-size: v.$font-size-sm;
+        font-style: italic;
+      }
+    }
+
+    &__section {
+      display: flex;
+      flex-direction: column;
+    }
+
+    &__subtitle {
+      font-size: v.$h2-size;
+    }
+
+    &__list {
+      margin: v.$spacing-sm;
+      padding-left: v.$spacing-sm;
+
+      &-item {
+        color: v.$color-text-secondary;
+        font-size: v.$font-size-base;
+        margin-bottom: v.$spacing-sm;
+        padding-left: v.$spacing-sm;
+
+        p {
+          margin: v.$spacing-sm auto 0;
+        }
+
+        &:has(.article__item-title) {
+          list-style-type: none;
+          padding-left: 0;
+        }
+      }
+    }
+
+    &__item {
+      &-title {
+        color: v.$color-text-primary;
+        display: block;
+        font-weight: v.$font-weight-bold;
+      }
+    }
+  }
+
+  /* Tablet styles */
+  @container article-content (min-width: #{v.$breakpoint-tablet}) {
+    .article {
+      padding: v.$spacing-md;
+
+      &__content {
+        padding: v.$spacing-lg v.$spacing-md;
+
+        p {
+          font-size: v.$font-size-md;
+          margin-bottom: v.$spacing-md;
+        }
+      }
+
+      :is(&__title, &__subtitle, &__author) {
+        margin: v.$spacing-md;
+      }
+
+      &__figure {
+        @supports (display: grid) {
+          grid-area: image;
+          height: 100%;
+          padding: v.$spacing-md;
+          width: 100%;
+        }
+      }
+
+      &__caption {
+        font-size: v.$font-size-base;
+      }
+
+      &__blockquote {
+        p {
+          font-size: v.$font-size-md;
+        }
+      }
+
+      &__section {
+        @supports (display: grid) {
+          display: grid;
+          grid-template-areas:
+            "subtitle subtitle"
+            "image list"
+            "p p";
+          grid-template-columns: repeat(2, 1fr);
+        }
+
+        p {
+          @supports (display: grid) {
+            grid-area: p;
+          }
+        }
+      }
+
+      &__subtitle {
+        @supports (display: grid) {
+          grid-area: subtitle;
+        }
+      }
+
+      &__list {
+        margin: v.$spacing-md;
+        padding-left: v.$spacing-md;
+
+        @supports (display: grid) {
+          grid-area: list;
+        }
+
+        &-item {
+          font-size: v.$font-size-md;
+          margin-bottom: v.$spacing-md;
+          padding-left: v.$spacing-md;
+
+          p {
+            margin: v.$spacing-md auto 0;
+          }
+        }
+      }
+    }
+  }
+
+  /* Desktop styles */
+  @container article-content (min-width: #{v.$breakpoint-desktop}) {
+    .article {
+      padding: v.$spacing-lg;
+
+      &__content {
+        padding: v.$spacing-lg v.$spacing-lg;
+
+        p {
+          font-size: v.$font-size-lg;
+          margin-bottom: v.$spacing-lg;
+        }
+      }
+
+      :is(&__title, &__subtitle, &__author) {
+        margin: v.$spacing-lg;
+      }
+
+      &__figure {
+        @supports (display: grid) {
+          grid-area: image;
+          height: 100%;
+          padding: v.$spacing-lg;
+          width: 100%;
+        }
+      }
+
+      &__caption {
+        font-size: v.$font-size-base;
+      }
+
+      &__blockquote {
+        p {
+          font-size: v.$font-size-lg;
+        }
+      }
+
+      &__list {
+        margin: v.$spacing-lg;
+        padding-left: v.$spacing-lg;
+
+        &-item {
+          font-size: v.$font-size-lg;
+          margin-bottom: v.$spacing-lg;
+          padding-left: v.$spacing-lg;
+
+          p {
+            margin: v.$spacing-lg auto 0;
+          }
+        }
+      }
+    }
+  }
+}

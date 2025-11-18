@@ -1,0 +1,175 @@
+@use "../variables" as v;
+
+/* Component styles for the footer layout */
+@layer components {
+  .footer {
+    background-color: v.$color-text-primary;
+    color: v.$color-text-inverse;
+    container: footer / inline-size;
+    width: 100%;
+
+    &__content {
+      align-items: center;
+      display: flex;
+      flex-direction: column;
+      gap: v.$spacing-sm;
+      margin-inline: auto;
+      max-width: v.$breakpoint-max-width;
+      padding: v.$spacing-sm;
+      width: 100%;
+    }
+
+    &__logo {
+      align-items: center;
+      color: v.$color-text-inverse;
+      display: flex;
+      font-family: v.$font-family-serif;
+      font-size: v.$font-size-md;
+      font-weight: v.$font-weight-bold;
+      gap: v.$spacing-sm;
+      text-align: center;
+      text-decoration: none;
+
+      &:hover,
+      &:focus-visible {
+        color: v.$color-primary-hover;
+        text-decoration: none;
+      }
+    }
+
+    &__nav {
+      font-family: v.$font-family-sans-serif;
+      justify-content: center;
+      width: 100%;
+
+      &-list {
+        align-items: center;
+        display: flex;
+        flex-direction: column;
+        gap: v.$spacing-sm;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+      }
+
+      &-link {
+        color: v.$color-text-inverse;
+        display: block;
+        font-size: v.$font-size-base;
+        padding: v.$spacing-sm;
+        text-decoration: none;
+
+        &:hover {
+          color: v.$color-primary-hover;
+        }
+
+        &:focus-visible {
+          color: v.$color-primary-hover;
+          outline: 2px solid v.$color-primary;
+          outline-offset: 2px;
+        }
+      }
+    }
+
+    &__social {
+      display: flex;
+      gap: v.$spacing-sm;
+      justify-content: center;
+      width: 100%;
+
+      &-link {
+        color: v.$color-text-inverse;
+        display: block;
+        font-size: v.$font-size-md;
+        text-decoration: none;
+
+        &:hover,
+        &:focus-visible {
+          color: v.$color-primary-hover;
+        }
+      }
+    }
+  }
+
+  /* Tablet styles */
+  @container footer (min-width: #{v.$breakpoint-tablet}) {
+    .footer {
+      &__content {
+        display: grid;
+        gap: v.$spacing-md;
+        grid-template-columns: 1fr 1fr;
+        padding: v.$spacing-md;
+      }
+
+      &__logo {
+        font-size: v.$h3-size;
+        grid-column: 1 / -1;
+        grid-row: 1 / 2;
+        justify-self: center;
+      }
+
+      &__nav {
+        grid-column: 1 / 2;
+        grid-row: 2 / 3;
+        justify-self: center;
+        width: auto;
+
+        &-list {
+          display: grid;
+          gap: v.$spacing-md;
+          grid-template-columns: repeat(2, 1fr);
+        }
+
+        &-link {
+          font-size: v.$h4-size;
+          padding: v.$spacing-md;
+        }
+      }
+
+      &__social {
+        grid-column: 2 / 3;
+        grid-row: 2 / 3;
+        justify-self: center;
+        width: auto;
+      }
+    }
+  }
+
+  /* Desktop styles */
+  @container footer (min-width: #{v.$breakpoint-desktop}) {
+    .footer {
+      &__content {
+        display: flex;
+        flex-direction: row;
+        gap: v.$spacing-lg;
+        justify-content: space-between;
+        padding: v.$spacing-lg;
+      }
+
+      &__logo {
+        font-size: v.$h3-size;
+      }
+
+      &__nav {
+        &-list {
+          display: flex;
+          flex-direction: row;
+          gap: v.$spacing-lg;
+        }
+
+        &-link {
+          font-size: v.$h4-size;
+          padding: v.$spacing-lg;
+        }
+      }
+
+      &__social {
+        gap: v.$spacing-lg;
+
+        &-link {
+          font-size: v.$h4-size;
+        }
+      }
+    }
+  }
+}

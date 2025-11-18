@@ -1,0 +1,94 @@
+@use "../variables" as v;
+
+/* Component styles for the speakers layout */
+@layer components {
+  .speakers {
+    background-color: v.$color-background-secondary;
+    padding: v.$spacing-sm;
+
+    &__content {
+      container: speakers-content / inline-size;
+      margin-inline: auto;
+      max-width: v.$breakpoint-max-width;
+      padding: v.$spacing-md v.$spacing-sm;
+      text-align: center;
+    }
+
+    &__title {
+      color: v.$color-text-primary;
+      font-family: v.$font-family-serif;
+      font-size: v.$h1-size;
+      font-weight: v.$font-weight-bold;
+      margin-bottom: v.$spacing-lg;
+    }
+
+    &__cards {
+      align-items: center;
+      display: flex;
+      flex-direction: column;
+      gap: v.$spacing-sm;
+
+      &-card {
+        background: v.$color-background-primary;
+        border-radius: v.$border-radius-base;
+        box-shadow: v.$box-shadow;
+        max-width: 400px;
+        overflow: hidden;
+        width: 90%;
+
+        &:hover {
+          box-shadow: 0 8px 20px rgba(v.$color-text-primary, 0.12);
+        }
+
+        &-image {
+          height: 300px;
+          object-fit: cover;
+          width: 100%;
+        }
+
+        &-name {
+          color: v.$color-primary;
+          font-family: v.$font-family-serif;
+          font-size: v.$h3-size;
+          margin: v.$spacing-sm;
+        }
+
+        &-bio {
+          color: v.$color-text-secondary;
+          font-family: v.$font-family-sans-serif;
+          font-size: v.$font-size-base;
+          line-height: v.$line-height-base;
+          margin: 0 v.$spacing-sm v.$spacing-sm;
+        }
+      }
+    }
+  }
+}
+
+/* Tablet styles */
+@container speakers-content (min-width: #{v.$breakpoint-tablet}) {
+  .speakers {
+    &__cards {
+      align-items: stretch;
+      flex-flow: row wrap;
+      justify-content: center;
+
+      &-card {
+        flex: 1 1 320px;
+        max-width: 400px;
+        width: auto;
+      }
+    }
+  }
+}
+
+/* Desktop styles */
+@container speakers-content (min-width: #{v.$breakpoint-desktop}) {
+  .speakers {
+    &__cards {
+      &-card {
+        flex: 1 1 300px;
+      }
+    }
+  }
+}

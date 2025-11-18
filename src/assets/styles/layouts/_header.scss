@@ -1,0 +1,127 @@
+@use "../variables" as v;
+
+/* Component styles for the header layout */
+@layer components {
+  .header {
+    background-color: v.$color-background-primary;
+    container: header / inline-size;
+    width: 100%;
+
+    &__content {
+      align-items: center;
+      display: flex;
+      flex-direction: column;
+      gap: v.$spacing-sm;
+      margin-inline: auto;
+      max-width: v.$breakpoint-max-width;
+      padding: v.$spacing-sm;
+      width: 100%;
+    }
+
+    &__logo {
+      color: v.$color-primary;
+      font-family: v.$font-family-serif;
+      font-size: v.$h4-size;
+      font-weight: v.$font-weight-bold;
+      gap: v.$spacing-sm;
+      text-align: center;
+      text-decoration: none;
+
+      &:hover,
+      &:focus-visible {
+        color: v.$color-primary-hover;
+        text-decoration: none;
+      }
+    }
+
+    &__nav {
+      font-family: v.$font-family-sans-serif;
+      justify-content: center;
+      width: 100%;
+
+      &-list {
+        align-items: center;
+        display: flex;
+        flex-direction: column;
+        gap: v.$spacing-sm;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+      }
+
+      &-link {
+        color: v.$color-primary;
+        display: block;
+        font-size: v.$h4-size;
+        padding: v.$spacing-sm;
+        text-decoration: none;
+
+        &:hover {
+          color: v.$color-primary-hover;
+        }
+
+        &:focus-visible {
+          color: v.$color-primary-hover;
+          outline: 2px solid v.$color-primary;
+          outline-offset: 2px;
+        }
+      }
+    }
+  }
+
+  /* Tablet styles */
+  @container header (min-width: #{v.$breakpoint-tablet}) {
+    .header {
+      &__content {
+        flex-direction: row;
+        gap: v.$spacing-md;
+        justify-content: space-between;
+        padding: v.$spacing-md;
+      }
+
+      &__logo {
+        font-size: v.$h3-size;
+        text-align: left;
+      }
+
+      &__nav {
+        width: auto;
+
+        &-list {
+          flex-direction: row;
+          gap: v.$spacing-md;
+        }
+
+        &-link {
+          font-size: v.$h3-size;
+          padding: v.$spacing-md;
+        }
+      }
+    }
+  }
+
+  /* Desktop styles */
+  @container header (min-width: #{v.$breakpoint-desktop}) {
+    .header {
+      &__content {
+        gap: v.$spacing-lg;
+        padding: v.$spacing-lg;
+      }
+
+      &__logo {
+        font-size: v.$h2-size;
+      }
+
+      &__nav {
+        &-list {
+          gap: v.$spacing-lg;
+        }
+
+        &-link {
+          font-size: v.$h2-size;
+          padding: v.$spacing-lg;
+        }
+      }
+    }
+  }
+}

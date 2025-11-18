@@ -1,59 +1,225 @@
-@use "../variables";
+@use "../variables" as v;
+@use "../functions" as f;
 
-* {
-  box-sizing: border-box;
-}
+/* Component styles for the front page layout */
+@layer components {
+  .poster-grid {
+    align-items: center;
+    background-color: v.$color-background-secondary;
+    container: poster-grid / inline-size;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    width: 100%;
 
-body {
-  display: flex;
-  flex-direction: column;
-  height: 100vh;
-  margin: 0;
-  padding: 2rem;
-  font-family: variables.$font-family-sans-serif;
-  font-size: 16px;
-  line-height: 24px;
-  background-color: variables.$uoc-bg;
-  color: variables.$uoc-corporate;
-}
+    &__content {
+      margin: 0 auto;
+      max-width: v.$breakpoint-max-width;
+      padding: v.$spacing-md v.$spacing-sm;
+      width: 100%;
 
-.uoc-container {
-  max-width: 800px;
-  margin: auto;
-  padding: 2rem;
-  border-radius: 2rem;
-  text-align: center;
-  background-color: #fff;
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
-    0 2px 4px -1px rgba(0, 0, 0, 0.06);
-}
+      @supports (display: grid) {
+        align-items: stretch;
+        display: grid;
+        gap: v.$spacing-md;
+        grid-template-areas:
+          "title"
+          "subtitle"
+          "image"
+          "event"
+          "speakers"
+          "article"
+          "contact";
+        grid-template-columns: 1fr;
+        text-align: center;
+        width: 100%;
+      }
+    }
 
-.uoc-logo {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  margin-bottom: 1.5rem;
-  max-width: 200px;
-  height: auto;
+    &__title {
+      color: v.$color-text-primary;
+      font-family: v.$font-family-serif;
+      font-size: v.$h2-size;
+      font-weight: v.$font-weight-bold;
+      text-align: center;
 
-  @media (min-width: variables.$mqMinWidth) {
-    max-width: none;
+      @supports (display: grid) {
+        grid-area: title;
+      }
+    }
+
+    &__subtitle {
+      color: v.$color-text-secondary;
+      font-family: v.$font-family-sans-serif;
+      font-size: v.$font-size-md;
+      font-weight: v.$font-weight-normal;
+      text-align: center;
+
+      @supports (display: grid) {
+        grid-area: subtitle;
+      }
+    }
+
+    &__image {
+      border-radius: v.$border-radius-base;
+      min-height: 300px;
+      object-fit: cover;
+      width: 100%;
+
+      @supports (display: grid) {
+        grid-area: image;
+        height: 100%;
+        justify-self: center;
+      }
+    }
+
+    &__info {
+      background-color: v.$color-background-primary;
+      border: 1px solid v.$color-border;
+      border-radius: v.$border-radius-base;
+      box-shadow: v.$box-shadow;
+      padding: v.$spacing-md;
+      width: fit-content;
+
+      @supports (display: grid) {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        width: 100%;
+      }
+
+      &-title {
+        color: v.$color-primary;
+        display: block;
+        font-family: v.$font-family-serif;
+        font-size: v.$font-size-md;
+        font-weight: v.$font-weight-bold;
+        margin-bottom: f.rem(4);
+      }
+
+      &-text {
+        color: v.$color-text-primary;
+        font-family: v.$font-family-sans-serif;
+        font-size: v.$font-size-base;
+        margin-bottom: 0;
+      }
+
+      &-link {
+        background-color: v.$color-primary;
+        border-radius: v.$border-radius-base;
+        color: v.$color-text-inverse;
+        display: inline-block;
+        font-family: v.$font-family-sans-serif;
+        font-size: v.$font-size-base;
+        font-weight: v.$font-weight-bold;
+        margin-top: v.$spacing-md;
+        padding: v.$spacing-sm;
+        text-align: center;
+        text-decoration: none;
+        width: fit-content;
+
+        @supports (display: grid) {
+          align-self: center;
+        }
+
+        &:hover {
+          background-color: v.$color-primary-hover;
+        }
+
+        &:focus-visible {
+          outline: 2px solid v.$color-accent;
+        }
+      }
+
+      &-event {
+        @supports (display: grid) {
+          grid-area: event;
+        }
+      }
+
+      &-speakers {
+        @supports (display: grid) {
+          grid-area: speakers;
+        }
+      }
+
+      &-article {
+        @supports (display: grid) {
+          grid-area: article;
+        }
+      }
+
+      &-contact {
+        @supports (display: grid) {
+          grid-area: contact;
+        }
+      }
+    }
   }
-}
 
-.uoc-title {
-  font-family: variables.$font-family-serif;
-  font-size: 24px;
-  font-weight: 700;
-  color: variables.$uoc-corporate;
+  /* Tablet styles */
+  @container poster-grid (min-width: #{v.$breakpoint-tablet}) {
+    .poster-grid {
+      &__content {
+        @supports (display: grid) {
+          gap: v.$spacing-md;
+          grid-template-areas:
+            "title title image image"
+            "subtitle subtitle image image"
+            "event speakers image image"
+            "article contact image image";
+          grid-template-columns: repeat(4, 1fr);
+          text-align: left;
+        }
+      }
 
-  @media (min-width: variables.$mqMinWidth) {
-    font-size: 36px;
+      &__title {
+        align-self: end;
+        font-size: v.$h1-size;
+      }
+
+      &__subtitle {
+        align-self: start;
+      }
+
+      &__info {
+        @supports (display: grid) {
+          text-align: left;
+        }
+
+        &-link {
+          @supports (display: grid) {
+            align-self: start;
+          }
+        }
+      }
+    }
   }
-}
 
-.uoc-footer {
-  margin-top: 1.5rem;
-  font-size: 0.75rem;
-  text-align: center;
+  /* Desktop styles */
+  @container poster-grid (min-width: #{v.$breakpoint-desktop}) {
+    .poster-grid {
+      &__content {
+        @supports (display: grid) {
+          gap: v.$spacing-md v.$spacing-lg;
+          grid-template-areas:
+            "title title title image image image"
+            "subtitle subtitle subtitle image image image"
+            "event event event image image image"
+            "speakers article contact image image image";
+          grid-template-columns: repeat(6, 1fr);
+          padding: v.$spacing-lg;
+        }
+      }
+
+      &__title {
+        font-size: v.$h1-size;
+      }
+
+      &__subtitle {
+        font-size: v.$h2-size;
+      }
+    }
+  }
 }

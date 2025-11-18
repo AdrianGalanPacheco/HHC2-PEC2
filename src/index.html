@@ -1,27 +1,67 @@
 <!DOCTYPE html>
 
-<html>
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width">
-    <link rel="stylesheet" type="text/css" href="./assets/styles/main.scss"><!-- do not remove this line! -->
-    <title>UOC Boilerplate</title>
-  </head>
-  <body>
-    <div class="uoc-container">
-      <picture>
-        <source srcset="./assets/images/logo.png?as=webp&width=350" type="image/webp" />
-        <img src="./assets/images/logo.png?width=350" alt="Universitat Oberta de Catalunya" class="uoc-logo" />
-      </picture>
-      <h1 class="uoc-title">Hello, UOC!</h1>
-      <p>
-        This is a starter template for the Advanced HTML and CSS Tools courses
-        from the Master's Program in Multimedia Applications and the Master's
-        Program in Web App and Website Development at the Universitat Oberta de
-        Catalunya.
-      </p>
+<html lang="es">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <link rel="stylesheet" type="text/css" href="./assets/styles/main.scss"><!-- do not remove this line! -->
+
+  <!-- Fork icons created by Freepik - Flaticon -->
+  <link rel="icon" type="image/x-icon" href="./assets/images/favicon.png">
+
+  <title>Recetario Tradicional | Portada</title>
+
+  <meta name="author" content="Adrián Galán Pacheco">
+  <meta name="description" content="Un viaje a través de la cocina tradicional. Descubre las mejores recetas caseras.">
+</head>
+
+<body>
+  <!-- Header -->
+  <include src="./views/header.html"></include>
+
+  <!-- Main -->
+  <main class="poster-grid">
+    <div class="poster-grid__content">
+
+      <h1 class="poster-grid__title">Recetario Tradicional</h1>
+      <h2 class="poster-grid__subtitle">Un viaje a través de la cocina tradicional</h2>
+      <img class="poster-grid__image" src="./assets/images/home-poster.jpg" alt="Portada del recetario tradicional">
+
+      <!-- Event -->
+      <div class="poster-grid__info poster-grid__info-event">
+        <p class="poster-grid__info-title">Explora los ricos sabores y tradiciones de nuestra herencia culinaria.</p>
+        <p class="poster-grid__info-text">25-27 de noviembre de 2025</p>
+      </div>
+
+      <!-- Speakers -->
+      <div class="poster-grid__info poster-grid__info-speakers">
+        <span class="poster-grid__info-title">Participantes</span>
+        <p class="poster-grid__info-text">6 Chefs Expertos</p>
+        <a href="speakers.html" class="poster-grid__info-link">Conoce a los chefs</a>
+      </div>
+
+      <!-- Article -->
+      <div class="poster-grid__info poster-grid__info-article">
+        <span class="poster-grid__info-title">Artículo Destacado</span>
+        <p class="poster-grid__info-text">Los Secretos de la Cocina Tradicional</p>
+        <a href="article.html" class="poster-grid__info-link">Leer el artículo</a>
+      </div>
+
+      <!-- Contact -->
+      <div class="poster-grid__info poster-grid__info-contact">
+        <span class="poster-grid__info-title">Contáctanos</span>
+        <p class="poster-grid__info-text">Para participar o para más información</p>
+        <a href="contact.html" class="poster-grid__info-link">Ponte en contacto</a>
+      </div>
+
     </div>
-    <include src="./views/footer.html"></include>
-    <script type="module" src="./assets/scripts/main.js"></script><!-- do not remove this line! -->
-  </body>
+  </main>
+
+  <!-- Footer -->
+  <include src="./views/footer.html"></include>
+
+  <script type="module" src="./assets/scripts/main.js"></script><!-- do not remove this line! -->
+</body>
+
 </html>

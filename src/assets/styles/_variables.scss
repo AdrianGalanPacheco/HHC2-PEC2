@@ -1,12 +1,70 @@
 @use "sass:color";
+@use "functions" as f;
 
-$font-family-sans-serif: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-  "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
+// Font families
+$font-family-sans-serif: "Lato", -apple-system, blinkmacsystemfont, "Segoe UI", roboto,
+  "Helvetica Neue", arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
   "Segoe UI Symbol";
-$font-family-serif: "Georgia", "Times New Roman", serif;
+$font-family-serif: "Merriweather", "Georgia", "Times New Roman", serif;
 
-$uoc-corporate: #000078;
-$uoc-masterbrand: #73edff;
-$uoc-bg: color.scale($uoc-masterbrand, $lightness: 70%);
+// Colors
+$color-text-primary: #4e443aff;
+$color-text-secondary: #7a7066ff;
+$color-text-inverse: #fdfbf5ff;
+$color-background-primary: #fdfbf5ff;
+$color-background-secondary: #f5f2e9ff;
+$color-border: #f5f2e9ff;
+$color-border-focus: #c05a3aff;
+$color-primary: #c05a3aff;
+$color-primary-hover: f.color-darken($color-primary, 10%);
+$color-secondary: #707d62ff;
+$color-secondary-hover: f.color-darken($color-secondary, 10%);
+$color-accent: #e6b357ff;
+$color-accent-hover: f.color-darken($color-accent, 10%);
+$color-link: #c05a3aff;
+$color-link-hover: f.color-darken($color-link, 10%);
+$color-success: #6a8e6aff;
+$color-error: #d9534fff;
+$color-info: #3a8bc0ff;
+$color-warning: #e6b357ff;
 
-$mqMinWidth: 420px;
+// Font sizes
+$font-size-base: 1rem;
+$font-size-sm: 0.875rem;
+$font-size-md: 1.125rem;
+$font-size-lg: 1.25rem;
+
+// Headings font sizes
+$h1-size: 2.5rem;
+$h2-size: 2rem;
+$h3-size: 1.75rem;
+$h4-size: 1.5rem;
+$h5-size: 1.25rem;
+$h6-size: 1rem;
+
+// Font weights
+$font-weight-light: 300;
+$font-weight-normal: 400;
+$font-weight-bold: 700;
+
+// Line Heights
+$line-height-base: 1.6;
+$line-height-heading: 1.2;
+
+// Breakpoints
+$breakpoint-tablet: 768px;
+$breakpoint-desktop: 1200px;
+$breakpoint-max-width: 1500px;
+
+// Borders
+$border-radius-base: f.rem(4);
+$border-width: 1px;
+
+// Box shadows
+$box-shadow: 0 f.rem(4) f.rem(12) rgba($color-text-primary, 0.08);
+
+// Spacing
+$spacing-base: 1rem;
+$spacing-sm: f.rem(8);
+$spacing-md: f.rem(16);
+$spacing-lg: f.rem(24);

@@ -1,0 +1,34 @@
+@use "sass:color";
+@use "sass:math";
+
+/**
+  * Lighten a color by a given amount.
+  *
+  * @param {Color} $color - The color to lighten.
+  * @param {Number} $amount - The amount to lighten the color by (0% to 100%).
+  * @return {Color} - The lightened color.
+  */
+@function color-lighten($color, $amount) {
+  @return color.adjust($color, $lightness: $amount);
+}
+
+/**
+  * Darken a color by a given amount.
+  *
+  * @param {Color} $color - The color to darken.
+  * @param {Number} $amount - The amount to darken the color by (0% to 100%).
+  * @return {Color} - The darkened color.
+  */
+@function color-darken($color, $amount) {
+  @return color.adjust($color, $lightness: -$amount);
+}
+
+/**
+  * Convert a pixel value to rem units.
+  *
+  * @param {Number} $px-value - The pixel value to convert.
+  * @return {Number} - The value in rem units.
+  */
+@function rem($px-value, $base-value: 16) {
+  @return math.div($px-value, $base-value) * 1rem;
+}

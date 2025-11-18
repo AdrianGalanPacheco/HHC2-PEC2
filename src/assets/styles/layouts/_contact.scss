@@ -1,0 +1,63 @@
+@use "../variables" as v;
+
+/* Component styles for the contact layout */
+@layer components {
+  .contact {
+    background-color: lch(97.37% 5.17 71.29deg);
+    container: contact / inline-size;
+    min-height: 100dvh;
+    padding: v.$spacing-sm;
+
+    &__content {
+      margin-inline: auto;
+      max-width: v.$breakpoint-tablet;
+      padding: v.$spacing-md v.$spacing-sm;
+      text-align: center;
+    }
+
+    &__title {
+      font-family: v.$font-family-serif;
+      font-size: v.$h1-size;
+      margin-bottom: v.$spacing-sm;
+    }
+
+    &__subtitle {
+      color: v.$color-text-secondary;
+      font-size: v.$font-size-md;
+      margin-bottom: v.$spacing-lg;
+    }
+
+    &__form {
+      text-align: left;
+    }
+  }
+
+  /* Tablet styles */
+  @container contact (min-width: #{v.$breakpoint-tablet}) {
+    .contact {
+      &__content {
+        padding: v.$spacing-lg v.$spacing-md;
+      }
+
+      &__form {
+        border-radius: v.$border-radius-base;
+        box-shadow: v.$box-shadow;
+        padding: v.$spacing-lg;
+      }
+    }
+  }
+
+  /* Bootstrap overrides */
+  .btn-primary {
+    background-color: v.$color-primary;
+    border-color: v.$color-primary-hover;
+  }
+
+  .form-label {
+    color: v.$color-text-secondary;
+    font-family: v.$font-family-sans-serif;
+    font-size: v.$font-size-base;
+    line-height: v.$line-height-base;
+    margin-bottom: v.$spacing-sm;
+  }
+}

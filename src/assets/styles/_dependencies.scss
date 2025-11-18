@@ -5,3 +5,8 @@
 
 // @import "some-node-module";
 // @import "@some-company/some-node-module";
+
+// Vendor styles
+@import "npm:bootstrap/scss/bootstrap" layer(vendor);
+@import "npm:@fortawesome/fontawesome-free/css/all.css" layer(vendor);
+@import "npm:flatpickr/dist/flatpickr.min.css" layer(vendor);
