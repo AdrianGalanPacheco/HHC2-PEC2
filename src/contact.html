@@ -29,29 +29,29 @@
       </p>
 
       <!-- Alert -->
-      <div class="alert alert-info" role="alert">
+      <div class="contact__alert alert alert-info" role="alert">
         Todas las solicitudes de participación serán revisadas por el equipo.
       </div>
 
       <!-- Form -->
       <form class="contact__form" method="POST" data-netlify="true">
         <!-- Name -->
-        <div class="mb-3">
-          <label for="name" class="form-label">Nombre Completo</label>
-          <input type="text" class="form-control" id="name" name="name" required>
+        <div class="contact__form-group mb-3">
+          <label for="name" class="contact__label form-label">Nombre completo</label>
+          <input type="text" class="contact__input form-control" id="name" name="name" required>
         </div>
 
         <!-- Email -->
-        <div class="mb-3">
-          <label for="email" class="form-label">Dirección de Correo</label>
-          <input type="email" class="form-control" id="email" name="email" required data-bs-toggle="tooltip"
-            data-bs-placement="top" title="Nunca compartiremos tu correo con nadie.">
+        <div class="contact__form-group mb-3">
+          <label for="email" class="contact__label form-label">Dirección de correo</label>
+          <input type="email" class="contact__input form-control" id="email" name="email" required
+            data-bs-toggle="tooltip" data-bs-placement="top" title="Nunca compartiremos tu correo con nadie.">
         </div>
 
         <!-- Reason -->
-        <div class="mb-3">
-          <label for="reason" class="form-label">Motivo de Contacto</label>
-          <select class="form-select" id="reason" name="reason">
+        <div class="contact__form-group mb-3">
+          <label for="reason" class="contact__label form-label">Motivo de contacto</label>
+          <select class="contact__select form-select" id="reason" name="reason">
             <option>Consulta General</option>
             <option>Solicitud de Participación</option>
             <option>Registro para Taller</option>
@@ -59,19 +59,20 @@
         </div>
 
         <!-- Datepicker -->
-        <div class="mb-3">
-          <label for="datepicker" class="form-label">Fecha Preferida</label>
-          <input type="text" class="form-control" id="datepicker" name="date" placeholder="Selecciona una fecha...">
+        <div class="contact__form-group mb-3">
+          <label for="datepicker" class="contact__label form-label">Fecha preferida</label>
+          <input type="text" class="contact__input form-control" id="datepicker" name="date" min="2025"
+            placeholder="Selecciona una fecha...">
         </div>
 
         <!-- Checkbox -->
-        <div class="mb-3 form-check">
-          <input type="checkbox" class="form-check-input" id="newsletter" name="newsletter">
-          <label class="form-check-label" for="newsletter">Suscríbete a nuestro boletín</label>
+        <div class="contact__form-group contact__form-group--checkbox mb-3 form-check">
+          <input type="checkbox" class="contact__checkbox form-check-input" id="newsletter" name="newsletter">
+          <label class="contact__label form-check-label" for="newsletter">Suscríbete a nuestro boletín</label>
         </div>
 
         <!-- Submit -->
-        <button type="submit" class="btn btn-primary">Enviar Mensaje</button>
+        <button type="submit" class="contact__button btn btn-primary">Enviar mensaje</button>
 
       </form>
 

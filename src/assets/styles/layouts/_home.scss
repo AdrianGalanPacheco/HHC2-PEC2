@@ -28,9 +28,7 @@
           "subtitle"
           "image"
           "event"
-          "speakers"
-          "article"
-          "contact";
+          "info-group";
         grid-template-columns: 1fr;
         text-align: center;
         width: 100%;
@@ -63,6 +61,7 @@
 
     &__image {
       border-radius: v.$border-radius-base;
+      max-width: 500px;
       min-height: 300px;
       object-fit: cover;
       width: 100%;
@@ -71,6 +70,7 @@
         grid-area: image;
         height: 100%;
         justify-self: center;
+        max-width: none;
       }
     }
 
@@ -79,12 +79,13 @@
       border: 1px solid v.$color-border;
       border-radius: v.$border-radius-base;
       box-shadow: v.$box-shadow;
+      display: flex;
+      flex-direction: column;
       padding: v.$spacing-md;
       width: fit-content;
 
       @supports (display: grid) {
-        display: flex;
-        flex-direction: column;
+        height: 100%;
         justify-content: space-between;
         width: 100%;
       }

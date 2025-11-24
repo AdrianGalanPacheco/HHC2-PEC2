@@ -6,6 +6,7 @@
   "plugins": ["stylelint-scss", "stylelint-order"],
   "rules": {
     "selector-class-pattern": "^[a-z0-9\\-]+(__[a-z0-9\\-]+)?(--[a-z0-9\\-]+)?$",
+    "selector-nested-pattern": "^&(?:__(?:[a-z0-9]+(?:-[a-z0-9]+)*)?)?(?:--(?:[a-z0-9]+(?:-[a-z0-9]+)*))?$",
     "selector-max-specificity": "0,3,0",
     "selector-max-id": 0,
 
